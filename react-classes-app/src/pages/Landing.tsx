@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import * as React from 'react'
-import '../style/index.css'
+import '../style/landing/index.css'
 import logo from '../img/logo.png'
 
 class Landing extends React.Component {
