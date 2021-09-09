@@ -1,0 +1,95 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover, a:active {
+  color: inherit;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 2.2vw;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 50px;
+  padding: 1rem 2.2rem;
+  transition: .3s;
+  box-sizing: border-box;
+}
+
+.button-primary {
+  background-color: #111827;
+}
+
+.button-light {
+  background-color: transparent;
+  border: 3px solid #fff;
+}
+
+.button-primary:hover {
+  background-color: #5B21B6;
+}
+
+.button-light:hover {
+  color: #5B21B6 !important;
+  border-color: #5B21B6;
+}
+
+.input {
+  display: inline-block;
+  border-radius: 15px;
+  padding: 1rem 2.2rem;
+  padding-left: 1rem;
+  transition: .3s;
+  box-sizing: border-box;
+}
+
+.input-light {
+  background-color: transparent;
+  color: #fff;
+  border: 3px solid #fff;
+}
+
+.input-light:focus {
+  background-color: transparent;
+  color: #fff;
+  border: 3px solid #fff;
+}
+
+.select-light {
+  background-color: transparent;
+  color: #fff;
+  border: 3px solid #fff;
+}
+
+.select-light:focus {
+  color: #5B21B6;
+  border-color: #5B21B6;
+}
+
+.heading {
+  width: 100%;
+  border-bottom: 3px solid #111827;
+}
+
+.heading-white {
+  width: 100%;
+  border-bottom: 3px solid #fff;
+}
+
+.default-shadow {
+  box-shadow: 0px 10px 25px 10px rgba(47, 44, 64, 0.12);
+}
+
+.hover-shadow {
+  box-shadow: 0px 10px 25px 15px rgba(47, 44, 64, 0.25);
+}
