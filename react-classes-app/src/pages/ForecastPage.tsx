@@ -3,6 +3,7 @@ import WeatherTable from '../components/WeatherTable';
 import { weatherType } from '../weatherApi/weatherType';
 import { apiKey } from '../weatherApi/apiKey'
 import { kelvinZero } from '../weatherApi/constants'
+import { signOut } from '../authApi/auth'
 
 type Props = {};
 type State = {
@@ -42,21 +43,26 @@ class ForecastPage extends React.Component<Props, State> {
     }
 
     this.setState({ currWeather: weather, error});
-    console.log(this.state);
   }
 
   render() {
     return (
       <div className="container">
-        <div className="row g-3 justify-content-center align-items-center w-100 my-5">
+        <div className="row g-3 justify-content-center align-items-center w-100 my-3">
+          <div className="col-auto">
+            <button onClick={signOut} type="submit" className="btn btn-secondary">Sign out</button>
+          </div>
+        </div>
+
+        <div className="row g-3 justify-content-center align-items-center my-5">
           <div className="col-auto">
             <label htmlFor="city" className="col-form-label">City</label>
           </div>
           <div className="col-auto">
-            <input type="text" id="city" value={this.state.cityQuery} onChange={this.handleChange} className="form-control" aria-describedby="city-weather" />
+            <input onChange={this.handleChange} type="text" id="city" value={this.state.cityQuery} className="form-control" aria-describedby="city-weather" />
           </div>
           <div className="col-auto">
-            <button type="submit" className="btn btn-primary" onClick={this.handleGetWeather}>Look up</button>
+            <button onClick={this.handleGetWeather} type="submit" className="btn btn-primary">Look up</button>
           </div>
         </div>
 

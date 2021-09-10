@@ -2,16 +2,43 @@
 import * as React from 'react'
 import '../style/login_page/style.css'
 
-class LoginPage extends React.Component {
+import { signUp } from '../authApi/auth';
+
+type loginState = {
+  login: string,
+  password: string
+}
+
+class LoginPage extends React.Component<{}, loginState> {
+  constructor(props: {}) {
+    super(props);
+
+    this.state = {
+      login: '',
+      password: '',
+    }
+
+    this.handleLoginInput = this.handleLoginInput.bind(this);
+    this.handlePasswordInput = this.handlePasswordInput.bind(this);
+  }
+
+  handleLoginInput(evt: React.ChangeEvent<HTMLInputElement>) {
+    this.setState({ login: evt.target.value });
+  }
+
+  handlePasswordInput(evt: React.ChangeEvent<HTMLInputElement>) {
+    this.setState({ password: evt.target.value });
+  }
+
   render() {
     return (
       <div className="wrapper fadeInDown">
         <div id="formContent">
 
           <form>
-            <input type="text" id="login" className="fadeIn second" name="login" placeholder="login" />
-            <input type="password" id="password" className="fadeIn third" name="login" placeholder="password" />
-            <input type="submit" className="fadeIn fourth" value="Sign In" />
+            <input onChange={this.handleLoginInput} type="text" id="login" className="fadeIn second" name="login" placeholder="login" />
+            <input onChange={this.handlePasswordInput} type="password" id="password" className="fadeIn third" name="login" placeholder="password" />
+            <input onClick={() => signUp(this.state.login, this.state.password)} type="submit" className="fadeIn fourth" value="Sign In" />
           </form>
 
         </div>
