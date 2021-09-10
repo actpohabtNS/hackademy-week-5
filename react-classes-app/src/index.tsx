@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect
 } from 'react-router-dom'
-import App from './App';
 import Landing from "./pages/Landing"
 import LoginPage from "./pages/LoginPage"
 import ForecastPage from './pages/ForecastPage'
