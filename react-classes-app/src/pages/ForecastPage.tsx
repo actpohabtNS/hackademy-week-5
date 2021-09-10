@@ -50,7 +50,9 @@ class ForecastPage extends React.Component<Props, State> {
       <div className="container">
         <div className="row g-3 justify-content-center align-items-center w-100 my-3">
           <div className="col-auto">
-            <button onClick={signOut} type="submit" className="btn btn-secondary">Sign out</button>
+            <form>
+              <button onClick={signOut} type="submit" className="btn btn-secondary">Sign out</button>
+            </form>
           </div>
         </div>
 
