@@ -36,9 +36,35 @@ class LoginPage extends React.Component<{}, loginState> {
         <div id="formContent">
 
           <form>
-            <input onChange={this.handleLoginInput} type="text" id="login" className="fadeIn second" name="login" placeholder="login" />
-            <input onChange={this.handlePasswordInput} type="password" id="password" className="fadeIn third" name="login" placeholder="password" />
-            <input onClick={() => signUp(this.state.login, this.state.password)} type="submit" className="fadeIn fourth" value="Sign In" />
+            <input
+              onChange={this.handleLoginInput}
+              value={this.state.login}
+              type="text"
+              id="login"
+              className="fadeIn second"
+              name="login"
+              placeholder="login"
+            />
+
+            <input
+              onChange={this.handlePasswordInput}
+              value={this.state.password}
+              type="password"
+              id="password"
+              className="fadeIn third"
+              name="login"
+              placeholder="password"
+            />
+
+            <input
+              onClick={() => {
+                signUp(this.state.login, this.state.password);
+                this.setState({ login: "", password: "" });
+              }}
+              type="submit"
+              className="fadeIn fourth"
+              value="Sign In"
+            />
           </form>
 
         </div>

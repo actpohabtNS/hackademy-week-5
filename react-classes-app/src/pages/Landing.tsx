@@ -156,7 +156,7 @@ class Landing extends React.Component {
             </div>
             <div className="cs__button-block">
               <label className="desktop-p1">We wait for you!</label>
-              <button type="submit" ref="#" className="button button-light text-white mobile-label">Buy now</button>
+              <button type="submit" className="button button-light text-white mobile-label">Buy now</button>
             </div>
           </form>
         </div>
