@@ -1,9 +1,10 @@
-import * as React from 'react'
+import React, { useEffect } from 'react'
 import WeatherTable from './components/WeatherTable';
 import { weatherType } from './api/weather/weatherType';
 import { apiKey } from './api/weather/apiKey'
 import { kelvinZero } from './api/weather/constants'
-import { signOut } from './api/auth/auth'
+import isAuthenticated, { signOut } from './api/auth/auth';
+import authPathResolver from './api/auth/authPathResolver';
 
 
 const ForecastPage = () => {
@@ -27,6 +28,8 @@ const ForecastPage = () => {
     setCurrWeather(weather);
     setError(error);
   }
+
+  useEffect(() => authPathResolver(isAuthenticated(), '/login'));
 
   return (
     <div className="container">

@@ -1,11 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import * as React from 'react'
+import React, { useEffect } from 'react'
 
-import { signUp } from './api/auth/auth';
+import isAuthenticated, { signUp } from './api/auth/auth';
+import authPathResolver from './api/auth/authPathResolver';
 
 const LoginPage = () => {
   const [login, setLogin] = React.useState("");
   const [password, setPassword] = React.useState("");
+
+  useEffect(() => authPathResolver(!isAuthenticated(), '/forecast'));
 
   return (
     <div className="wrapper fadeInDown">

@@ -1,13 +1,21 @@
 export default function isAuthenticated(): boolean {
+  if (typeof window !== "undefined") {
     return Boolean(localStorage.getItem("login") && localStorage.getItem("password"));
+  }
+
+  return false;
 }
 
 export function signUp(login: string, password: string): void {
-  localStorage.setItem("login", login);
-  localStorage.setItem("password", password);
+  if (typeof window !== "undefined") {
+    localStorage.setItem("login", login);
+    localStorage.setItem("password", password);
+  }
 }
 
 export function signOut(): void {
-  localStorage.removeItem("login");
-  localStorage.removeItem("password");
+  if (typeof window !== "undefined"){
+    localStorage.removeItem("login");
+    localStorage.removeItem("password");  
+  }
 }
