@@ -25,16 +25,18 @@ ReactDOM.render(
         <GuardedRoute
           path="/login"
           isAuth={ !isAuthenticated() }
-          RenderComponent={ LoginPage }
           redirectTo="/forecast"
-        />
+        >
+          <LoginPage />
+        </GuardedRoute>
 
         <GuardedRoute
           path="/forecast"
           isAuth={ isAuthenticated() }
-          RenderComponent={ ForecastPage }
           redirectTo="/login"
-        />
+        >
+          <ForecastPage />
+        </GuardedRoute>
 
         <Route path="*">
           <Redirect to={{ pathname: "/" }} />
