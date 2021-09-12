@@ -7,6 +7,7 @@ import {
   Redirect
 } from 'react-router-dom'
 import Landing from "./pages/Landing"
+import GuardedRoute from './components/GuardedRoute';
 import LoginPage from "./pages/LoginPage"
 import ForecastPage from './pages/ForecastPage'
 
@@ -21,25 +22,19 @@ ReactDOM.render(
           <Landing />
         </Route>
 
-        <Route path="/login">
-          
-          {
-            isAuthenticated()
-            ? <Redirect to={{ pathname: "/forecast" }} />
-            : <LoginPage />
-          }
+        <GuardedRoute
+          path="/login"
+          isAuth={ !isAuthenticated() }
+          RenderComponent={ LoginPage }
+          redirectTo="/forecast"
+        />
 
-        </Route>
-
-        <Route path="/forecast">
-          
-          {
-            isAuthenticated()
-            ? <ForecastPage />
-            : <Redirect to={{ pathname: "/login" }} />
-          }
-
-        </Route>
+        <GuardedRoute
+          path="/forecast"
+          isAuth={ isAuthenticated() }
+          RenderComponent={ ForecastPage }
+          redirectTo="/login"
+        />
 
         <Route path="*">
           <Redirect to={{ pathname: "/" }} />
