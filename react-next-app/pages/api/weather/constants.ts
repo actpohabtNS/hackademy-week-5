@@ -1,0 +1,1 @@
+export const kelvinZero = -273.15;

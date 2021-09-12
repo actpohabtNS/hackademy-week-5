@@ -103,9 +103,9 @@ export default function Home() {
         <div className="price-section">
           <div className="header bg-primary d-flex justify-content-between align-items-center">
             <span className="desktop-h2 text-white">Pricing</span>
-            <select className="form-select price__location mobile-label select-light" aria-label="Location select">
+            <select className="form-select price__location mobile-label select-light" defaultValue="eu" aria-label="Location select">
               <option value="am">America</option>
-              <option defaultValue value="eu">Europe</option>
+              <option value="eu">Europe</option>
               <option value="as">Asia</option>
             </select>
           </div>
