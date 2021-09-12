@@ -12,7 +12,7 @@ export default function Home() {
         <div id="top-section">
           <div className="header bg-primary grid">
             <div className="header__logo d-flex align-items-center">
-              <Image src="/logo.png" alt="logo" width="64" height="64" />
+              <Image src="/img/logo.png" alt="logo" width="64" height="56" />
             </div>
             <div className="header__name text-white desktop-h2 d-flex align-items-center">Interactive Map</div>
             <div className="header__links d-flex justify-content-between align-items-center text-super-light desktop-h5">
@@ -105,7 +105,7 @@ export default function Home() {
             <span className="desktop-h2 text-white">Pricing</span>
             <select className="form-select price__location mobile-label select-light" aria-label="Location select">
               <option value="am">America</option>
-              <option selected value="eu">Europe</option>
+              <option defaultValue value="eu">Europe</option>
               <option value="as">Asia</option>
             </select>
           </div>
