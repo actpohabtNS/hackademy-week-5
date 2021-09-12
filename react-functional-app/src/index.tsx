@@ -11,6 +11,7 @@ import LoginPage from "./pages/LoginPage"
 import ForecastPage from './pages/ForecastPage'
 
 import isAuthenticated from './authApi/auth'
+import GuardedRoute from './components/GuardedRoute';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -21,25 +22,21 @@ ReactDOM.render(
           <Landing />
         </Route>
 
-        <Route path="/login">
-          
-          {
-            isAuthenticated()
-            ? <Redirect to={{ pathname: "/forecast" }} />
-            : <LoginPage />
-          }
+        <GuardedRoute
+          path="/login"
+          isAuth={ !isAuthenticated() }
+          redirectTo="/forecast"
+        >
+          <LoginPage />
+        </GuardedRoute>
 
-        </Route>
-
-        <Route path="/forecast">
-          
-          {
-            isAuthenticated()
-            ? <ForecastPage />
-            : <Redirect to={{ pathname: "/login" }} />
-          }
-
-        </Route>
+        <GuardedRoute
+          path="/forecast"
+          isAuth={ isAuthenticated() }
+          redirectTo="/login"
+        >
+          <ForecastPage />
+        </GuardedRoute>
 
         <Route path="*">
           <Redirect to={{ pathname: "/" }} />

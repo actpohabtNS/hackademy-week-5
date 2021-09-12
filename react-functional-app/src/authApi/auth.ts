@@ -1,5 +1,5 @@
-export default function isAuthenticated() {
-    return localStorage.getItem("login") && localStorage.getItem("password");
+export default function isAuthenticated(): boolean {
+    return Boolean(localStorage.getItem("login") && localStorage.getItem("password"));
 }
 
 export function signUp(login: string, password: string): void {
