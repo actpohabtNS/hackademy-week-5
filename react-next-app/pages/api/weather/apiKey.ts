@@ -1,1 +1,1 @@
-export const apiKey = "754b7c18fe78bdf3f82ea696d90b178e";
+export const apiKey = process.env.OPENWEATHER_API_KEY;
